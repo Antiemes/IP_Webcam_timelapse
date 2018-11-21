@@ -1,10 +1,12 @@
 #!/bin/bash
 
+url="http://192.168.1.243:8080/photoaf.jpg"
+delay=30
 while true
   do
     x=$(date +%s)
-    d=$((x-x%10+10))
+    d=$((x-x%delay+delay))
     sleep $((d-x))
-    wget "http://192.168.1.243:8080/photoaf.jpg" --timeout=10 -O photo_$d.jpg
+    wget $url --timeout=10 -O photo_$d.jpg
     echo $d
   done
